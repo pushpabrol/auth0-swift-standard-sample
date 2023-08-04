@@ -1,43 +1,50 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Auth0",
-        "repositoryURL": "https://github.com/auth0/Auth0.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "03c85db911c2365208497907b82b91d0a774e4e7",
-          "version": "2.0.0"
-        }
-      },
-      {
-        "package": "JWTDecode",
-        "repositoryURL": "https://github.com/auth0/JWTDecode.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "3cd207fb9e943b6168a117baa3936c823204c2dc",
-          "version": "2.6.3"
-        }
-      },
-      {
-        "package": "SimpleKeychain",
-        "repositoryURL": "https://github.com/auth0/SimpleKeychain.git",
-        "state": {
-          "branch": null,
-          "revision": "b355c569efcd409e252ccbb500d9fc2713b4d64d",
-          "version": "0.12.5"
-        }
-      },
-      {
-        "package": "ViewInspector",
-        "repositoryURL": "https://github.com/nalexn/ViewInspector",
-        "state": {
-          "branch": null,
-          "revision": "6b88c4ec1fa20cf38f2138052e63c8e79df5d76e",
-          "version": "0.9.1"
-        }
+  "pins" : [
+    {
+      "identity" : "auth0.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/auth0/Auth0.swift.git",
+      "state" : {
+        "revision" : "9d970f3f5a694a146724e055c7932808a274d96e",
+        "version" : "2.5.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "bettersafariview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stleamist/BetterSafariView.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9c051d20dbb50fa61d014d87b4ab6c5504408a73"
+      }
+    },
+    {
+      "identity" : "jwtdecode.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/auth0/JWTDecode.swift.git",
+      "state" : {
+        "revision" : "58af7278797871e460d79496621b3e5366b865b2",
+        "version" : "3.1.0"
+      }
+    },
+    {
+      "identity" : "simplekeychain",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/auth0/SimpleKeychain.git",
+      "state" : {
+        "revision" : "f082494aab8056139a4fe234c920a9f92f681aff",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "viewinspector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nalexn/ViewInspector",
+      "state" : {
+        "revision" : "6b88c4ec1fa20cf38f2138052e63c8e79df5d76e",
+        "version" : "0.9.1"
+      }
+    }
+  ],
+  "version" : 2
 }

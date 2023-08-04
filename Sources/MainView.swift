@@ -14,36 +14,31 @@ struct MainView: View {
             VStack {
                 ProfileView(profile: self.$profile)
                 Button("Logout", action: self.logout)
-            }.onOpenURL { url in
-                WebAuthentication.resume(with: url)
             }
         } else {
             VStack {
                 HeroView()
                 Button("Login", action: self.login)
             }.onAppear {
-
                 
-                if (credentialsManager.hasValid() == false && A0SimpleKeychain().hasValue(forKey: "rtExists"))
-                {
+                if(credentialsManager.canRenew()) {
                     credentialsManager.enableBiometrics(withTitle: "Touch or enter passcode to Login")
-                }
-                
-                credentialsManager.credentials { result in
-                    switch result {
-                    case .success(let credentials):
-                        self.profile = Profile.from(credentials.idToken)
-                        A0SimpleKeychain().setString("Y", forKey: "rtExists")
-                        loggedIn = true
-                    case .failure(let error):
-                        loggedIn = false
-                        print("Failed with: \(error)")
+                    credentialsManager.credentials { result in
+                        switch result {
+                        case .success(let credentials):
+                            self.profile = Profile.from(credentials.idToken)
+                            loggedIn = true
+                        case .failure(let error):
+                            loggedIn = false
+                            print("Failed with: \(error)")
+                        }
                     }
+                    
                 }
-                
+                else {
+                    self.loggedIn = false
+                }
 
-            }.onOpenURL { url in
-                WebAuthentication.resume(with: url)
             }
         }
     }
@@ -55,10 +50,8 @@ extension MainView {
      func login() {
 
         Auth0
-             .webAuth()
-            .provider(WebAuthentication.safariProvider())
+            .webAuth()
             .audience("organise")
-            .parameters(["login_hint" : "pushp.abrol@gmail.com"])
             .scope("openid profile email offline_access read:calendar")
             .start { result in
                 switch result {
@@ -73,22 +66,18 @@ extension MainView {
     }
 
     func logout() {
-       A0SimpleKeychain().clearAll()
         _ = credentialsManager.clear()
         Auth0
             .webAuth()
-            .provider(WebAuthentication.safariProvider())
-            .clearSession(federated: true, callback: { result in
+            .clearSession { result in
                 switch result {
                 case .success:
                     
                     self.loggedIn = false
-                    
                 case .failure(let error):
                     print("Failed with: \(error)")
                 }
-            })
-            
+            }
     }
     
 }
