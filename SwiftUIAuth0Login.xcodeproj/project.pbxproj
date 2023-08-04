@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113CC0E2284E281E008CF67A /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 113CC0E1284E281E008CF67A /* BetterSafariView */; };
 		5C5DBE83277210B400E19935 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 5C5DBE82277210B400E19935 /* Auth0 */; };
 		5C5DBE86277210C100E19935 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 5C5DBE85277210C100E19935 /* Auth0 */; };
 		5C5DBE88277212E000E19935 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DBE87277212E000E19935 /* Auth0.plist */; };
@@ -117,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C5DBE83277210B400E19935 /* Auth0 in Frameworks */,
+				113CC0E2284E281E008CF67A /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +320,7 @@
 			name = "SwiftUIAuth0Login (iOS)";
 			packageProductDependencies = (
 				5C5DBE82277210B400E19935 /* Auth0 */,
+				113CC0E1284E281E008CF67A /* BetterSafariView */,
 			);
 			productName = "SwiftSample (iOS)";
 			productReference = 5CDD885C277102DC00052307 /* SwiftUIAuth0Login.app */;
@@ -386,6 +389,7 @@
 			packageReferences = (
 				5C5DBE81277210B400E19935 /* XCRemoteSwiftPackageReference "Auth0.swift" */,
 				5CD3A4622784F5F900B67D88 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				113CC0E0284E281E008CF67A /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 			);
 			productRefGroup = 5CDD885D277102DC00052307 /* Products */;
 			projectDirPath = "";
@@ -804,7 +808,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -839,7 +843,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -968,6 +972,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		113CC0E0284E281E008CF67A /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		5C5DBE81277210B400E19935 /* XCRemoteSwiftPackageReference "Auth0.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/Auth0.swift.git";
@@ -987,6 +999,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		113CC0E1284E281E008CF67A /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 113CC0E0284E281E008CF67A /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
+		};
 		5C5DBE82277210B400E19935 /* Auth0 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C5DBE81277210B400E19935 /* XCRemoteSwiftPackageReference "Auth0.swift" */;
