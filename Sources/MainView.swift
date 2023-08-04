@@ -14,6 +14,8 @@ struct MainView: View {
             VStack {
                 ProfileView(profile: self.$profile)
                 Button("Logout", action: self.logout)
+            }.onOpenURL { url in
+                WebAuthentication.resume(with: url)
             }
         } else {
             VStack {
@@ -40,6 +42,8 @@ struct MainView: View {
                 }
                 
 
+            }.onOpenURL { url in
+                WebAuthentication.resume(with: url)
             }
         }
     }
@@ -51,8 +55,10 @@ extension MainView {
      func login() {
 
         Auth0
-            .webAuth()
+             .webAuth()
+            .provider(WebAuthentication.safariProvider())
             .audience("organise")
+            .parameters(["login_hint" : "pushp.abrol@gmail.com"])
             .scope("openid profile email offline_access read:calendar")
             .start { result in
                 switch result {
@@ -67,19 +73,22 @@ extension MainView {
     }
 
     func logout() {
-        A0SimpleKeychain().clearAll()
+       A0SimpleKeychain().clearAll()
         _ = credentialsManager.clear()
         Auth0
             .webAuth()
-            .clearSession { result in
+            .provider(WebAuthentication.safariProvider())
+            .clearSession(federated: true, callback: { result in
                 switch result {
                 case .success:
                     
                     self.loggedIn = false
+                    
                 case .failure(let error):
                     print("Failed with: \(error)")
                 }
-            }
+            })
+            
     }
     
 }
